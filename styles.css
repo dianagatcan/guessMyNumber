@@ -1,0 +1,9 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 1rem;
+  box-sizing: border-box;
+  min-height: 100%;
+  max-width: 1440px;
+  font-family: "Rubik", sans-serif;
+}
