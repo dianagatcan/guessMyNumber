@@ -4,18 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Guess my number</title>
+    <title>Guess my number!</title>
   </head>
   <body>
-    <h1 id="random"></h1>
     <h1>Guess my number</h1>
-    <p id="message"></p>
-    <button id="start">Start game</button>
-    <label for="guess">Enter your guess:</label>
-    <input type="number" id="guess" name="guess" />
-    <button type="submit" id="check">Check answer</button>
-    <p>Win or Lose Message</p>
-    <button id="restart">Try again</button>
+    <p class="rules">Guess a random number between 0 and 20</p>
+    <section class="game">
+      <p id="message">Click 'Start' when you are ready</p>
+      <form>
+        <input
+          disabled
+          type="number"
+          id="guess"
+          name="guess"
+          placeholder="Type your guess ..."
+        />
+        <button disabled type="button" id="check">Check answer</button>
+      </form>
+      <button id="start">Start game</button>
+      <button id="restart" class="disable">Try again</button>
+    </section>
+
     <script src="script.js"></script>
   </body>
 </html>
