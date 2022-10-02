@@ -26,6 +26,13 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.userGuesses {
+  color: #ffffff;
+  position: absolute;
+  left: 0;
+  margin-left: 1rem;
+}
+
 .game {
   width: 50%;
   height: 350px;

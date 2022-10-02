@@ -9,10 +9,16 @@
   <body>
     <h1>Guess my number</h1>
     <p class="rules">Guess a random number between 0 and 20</p>
+    <p class="userGuesses disable">
+      Your guesses:<span class="guesses"></span>
+    </p>
     <section class="game">
       <p id="message">Click 'Start' when you are ready</p>
-      <form>
+      <form id="form">
         <input
+          onkeyup="validateInput()"
+          max="20"
+          min="0"
           disabled
           type="number"
           id="guess"
