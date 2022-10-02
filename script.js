@@ -60,7 +60,6 @@ let message = document.getElementById("message");
 let userGuesses = document.querySelector(".userGuesses");
 let guesses = document.querySelector(".guesses");
 let game;
-//generate random number when click on start game button
 
 form.addEventListener("keypress", (event) => {
   if (event.key == "Enter") {
@@ -82,7 +81,7 @@ startButton.addEventListener("click", () => {
   checkButton.disabled = false;
   userGuesses.classList.remove("disable");
 });
-//check the guess
+
 checkButton.addEventListener("click", () => {
   const value = input.value;
   const guess = new Guess();
