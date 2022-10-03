@@ -17,10 +17,9 @@ class Game {
         checkButton.disabled = true;
         input.disabled = true;
         restartButton.classList.remove("disable");
-      } else if (guessValue > this.#solution) {
-        message.innerHTML = `The random number is less than ${guessValue}. You have ${this.remainingAttempts} more attempts`;
       } else {
-        message.innerHTML = `The random number is greater than ${guessValue}. You have ${this.remainingAttempts} more attempts`;
+        const condition = guessValue > this.#solution ? "less" : "greater";
+        message.innerHTML = `The random number is ${condition} than ${guessValue}. You have ${this.remainingAttempts} more attempts`;
       }
     } else {
       message.innerHTML = `You lost. Number was ${this.#solution}`;
@@ -65,10 +64,12 @@ form.addEventListener("keypress", (event) => {
   if (event.key == "Enter") {
     event.preventDefault();
     const value = input.value;
-    const guess = new Guess();
-    guess.setValue(value);
-    game.addGuess(guess);
-    game.checkGuess(guess);
+    if (value < 20 && value > 0) {
+      const guess = new Guess();
+      guess.setValue(value);
+      game.addGuess(guess);
+      game.checkGuess(guess);
+    }
   }
 });
 
@@ -92,14 +93,17 @@ checkButton.addEventListener("click", () => {
 
 function validateInput() {
   const inputValue = input.value;
-  if (inputValue > 20 || inputValue < 0) {
-    checkButton.disabled = true;
-  } else {
-    checkButton.disabled = false;
-  }
+  checkButton.disabled = inputValue > 20 || inputValue < 0;
 }
 
 restartButton.addEventListener("click", () => {
   game.restartGame();
   restartButton.classList.add("disable");
 });
+
+// else if (guessValue > this.#solution) {
+//   const condition = guessValue > this.#solution ? 'less' : 'greater'
+//   message.innerHTML = `The random number is ${condition} than ${guessValue}. You have ${this.remainingAttempts} more attempts`;
+// } else {
+//   message.innerHTML = `The random number is greater than ${guessValue}. You have ${this.remainingAttempts} more attempts`;
+// }
